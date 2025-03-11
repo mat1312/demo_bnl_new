@@ -8,7 +8,136 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bnl: {
+              green: '#006937',
+              lightgreen: '#00865a',
+              darkgreen: '#00552c',
+              gray: '#f0f0f0',
+              darkgray: '#333333',
+            },
+          },
+          fontFamily: {
+            'poppins': ['Poppins', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
   <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23006937' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+    
+    /* Effetto onda per header */
+    .wave-container {
+      position: relative;
+      background: linear-gradient(135deg, #006937 0%, #00865a 100%);
+      color: white;
+      overflow: hidden;
+    }
+    
+    .wave-container::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fa' fill-opacity='1' d='M0,256L48,261.3C96,267,192,277,288,266.7C384,256,480,224,576,197.3C672,171,768,149,864,160C960,171,1056,213,1152,218.7C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+      background-size: cover;
+      transform: translateY(1px);
+    }
+    
+    /* Pulsazione sottile per il logo */
+    @keyframes pulse-subtle {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .pulse-animation {
+      animation: pulse-subtle 3s infinite ease-in-out;
+    }
+    
+    /* Card con effetto hover */
+    .hover-card {
+      transition: all 0.3s ease;
+    }
+    
+    .hover-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 105, 55, 0.1);
+    }
+    
+    /* Input con effetto focus moderno */
+    .modern-input {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      background: white;
+    }
+    
+    .modern-input:focus {
+      border-color: #006937;
+      box-shadow: 0 0 0 4px rgba(0, 105, 55, 0.1);
+    }
+    
+    /* Bottoni con effetto hover */
+    .btn-bnl {
+      background: linear-gradient(135deg, #006937 0%, #00865a 100%);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-bnl:hover {
+      background: linear-gradient(135deg, #00552c 0%, #006937 100%);
+      transform: translateY(-2px);
+    }
+    
+    .btn-bnl::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.5);
+      opacity: 0;
+      border-radius: 100%;
+      transform: scale(1, 1) translate(-50%);
+      transform-origin: 50% 50%;
+    }
+    
+    .btn-bnl:hover::after {
+      animation: ripple 1s ease-out;
+    }
+    
+    @keyframes ripple {
+      0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(20, 20);
+        opacity: 0;
+      }
+    }
+    
     /* Container del widget: centrato orizzontalmente, ancorato in alto */
     .widget-container {
       max-width: 600px;
@@ -34,87 +163,148 @@
       left: 0 !important;
       transform: none !important;
       margin: 0 auto !important;
-      /* Se desideri che il widget riempia tutto lo spazio del container,
-         togli i commenti alle due righe seguenti:
-         width: 100% !important;
-         height: 100% !important;
-      */
+    }
+    
+    /* Badge BNL */
+    .badge-bnl {
+      background-color: rgba(0, 105, 55, 0.1);
+      color: #006937;
+      border-radius: 16px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
     }
   </style>
 </head>
-<body class="bg-gray-50">
-  <!-- Ridotto il margine verticale principale da my-8 a my-4 -->
-  <div class="max-w-5xl mx-auto my-4 px-4">
-    <!-- Titolo principale -->
-    <h1 class="text-center text-4xl font-bold mb-6">Consulente Virtuale Mutui</h1>
-    
+<body class="font-poppins">
+  <!-- Header con effetto onda -->
+  <header class="wave-container py-8 mb-8">
+    <div class="max-w-5xl mx-auto px-4 relative">
+      <div class="flex items-center justify-between">
+        <!-- Logo BNL -->
+        <div class="pulse-animation">
+          <div class="flex items-center">
+            <div class="bg-white p-2 rounded-lg shadow-lg">
+              <svg width="60" height="40" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="120" height="80" rx="4" fill="white"/>
+                <path d="M20 20H40V30H50V40H40V60H30V40H20V20Z" fill="#006937"/>
+                <path d="M60 20H50V60H60V40H70V60H80V40H90V60H100V20H60V30H90V35H60V20Z" fill="#006937"/>
+              </svg>
+            </div>
+            <div class="ml-3">
+              <h1 class="text-3xl font-bold tracking-tight animate__animated animate__fadeInDown">Consulente Virtuale Mutui</h1>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="max-w-5xl mx-auto px-4">
     <!-- Sezione Q&A -->
-    <section id="qa-section">
-      <h2 class="text-2xl font-semibold mb-4">Fai una domanda su mutui, tassi di interesse, piani di ammortamento, ecc.</h2>
+    <section id="qa-section" class="hover-card bg-white rounded-xl shadow-lg p-6 mb-8 animate__animated animate__fadeIn">
+      <h2 class="text-2xl font-semibold mb-4 text-bnl-darkgreen flex items-center">
+        <i class="fas fa-question-circle mr-3 text-bnl-green"></i>
+        Fai una domanda su mutui, tassi di interesse, piani di ammortamento
+      </h2>
       <form id="qa-form">
         <div class="mb-4">
-          <label for="userInput" class="block text-gray-700 font-medium mb-1">
+          <label for="userInput" class="block text-bnl-darkgray font-medium mb-2">
             Inserisci la tua domanda qui
           </label>
-          <input 
-            type="text" 
-            class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" 
-            id="userInput" 
-            placeholder="La tua domanda">
+          <div class="relative">
+            <input 
+              type="text" 
+              class="modern-input w-full border border-gray-300 rounded-lg px-5 py-3 focus:outline-none" 
+              id="userInput" 
+              placeholder="Es: Qual è il miglior tipo di mutuo per un appartamento?">
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+              <i class="fas fa-search text-gray-400"></i>
+            </div>
+          </div>
         </div>
         <button 
           type="submit" 
-          class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded">
-          Invia
+          class="btn-bnl text-white font-medium py-3 px-6 rounded-lg shadow-md">
+          <i class="fas fa-paper-plane mr-2"></i> Invia
         </button>
       </form>
-      <div id="qa-response" class="mt-4"></div>
+      <div id="qa-response" class="mt-6"></div>
     </section>
     
-    <!-- Ridotto il margine dell'HR da my-8 a my-4 -->
-    <hr class="my-4 border-t border-gray-300">
-    
     <!-- Sezione Agent Conversazionale ElevenLabs -->
-    <section id="elevenlabs-section" class="mb-4">
-      <h2 class="text-center text-2xl font-semibold mb-2">Agent Conversazionale ElevenLabs</h2>
-      <!-- Wrapper per centrare il widget sotto il titolo -->
-      <div class="flex justify-center my-2">
-        <div class="widget-container" id="widget-container">
-          <!-- Il widget verrà inserito qui -->
-          <elevenlabs-convai agent-id="nUnSSapc73VFkrd3Z73U"></elevenlabs-convai>
+    <section id="elevenlabs-section" class="mb-8">
+      <div class="flex flex-col items-center">
+        <div class="mb-4 text-center">
+          <h2 class="text-2xl font-semibold text-bnl-darkgreen inline-block border-b-2 border-bnl-green pb-1">
+            <i class="fas fa-robot mr-2"></i> Assistente Virtuale
+          </h2>
+          <p class="text-gray-600 mt-2">Parla con il nostro consulente virtuale per ottenere risposte immediate</p>
+        </div>
+        <!-- Wrapper per centrare il widget sotto il titolo -->
+        <div class="hover-card bg-white rounded-xl shadow-lg p-4 w-full max-w-2xl relative">
+          <div class="absolute top-0 right-0 -mt-3 -mr-3">
+            <span class="badge-bnl px-3 py-1 text-xs">
+              <i class="fas fa-headset mr-1"></i> Assistenza Vocale
+            </span>
+          </div>
+          <div class="widget-container" id="widget-container">
+            <!-- Il widget verrà inserito qui -->
+            <elevenlabs-convai agent-id="nUnSSapc73VFkrd3Z73U"></elevenlabs-convai>
+          </div>
         </div>
       </div>
       <!-- Script del widget ElevenLabs -->
       <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
     </section>
     
-    <!-- Ridotto il margine dell'HR da my-8 a my-4 -->
-    <hr class="my-4 border-t border-gray-300">
-    
     <!-- Sezione Transcript e Estrazione Contatti -->
-    <section id="transcript-section" class="mb-4">
-      <h2 class="text-2xl font-semibold mb-4">Transcript e Estrazione Contatti</h2>
+    <section id="transcript-section" class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4 text-bnl-darkgreen text-center">
+        <i class="fas fa-clipboard-list mr-2"></i> Gestione Conversazioni
+      </h2>
       <div class="flex flex-wrap -mx-3">
         <!-- Colonna Transcript -->
         <div class="w-full md:w-1/2 px-3 mb-3">
-          <button 
-            id="btnRetrieve" 
-            class="bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded mb-3">
-            Recupera conversazione
-          </button>
-          <div id="transcript-display"></div>
+          <div class="hover-card bg-white rounded-xl shadow-lg p-5 h-full">
+            <h3 class="text-lg font-semibold mb-3 text-bnl-green">Transcript della conversazione</h3>
+            <button 
+              id="btnRetrieve" 
+              class="btn-bnl text-white font-medium py-2 px-4 rounded-lg shadow-md mb-3 w-full">
+              <i class="fas fa-history mr-2"></i> Recupera conversazione
+            </button>
+            <div id="transcript-display" class="mt-4 max-h-80 overflow-y-auto p-2 rounded-lg bg-gray-50"></div>
+          </div>
         </div>
         <!-- Colonna Estrazione Contatti -->
         <div class="w-full md:w-1/2 px-3 mb-3">
-          <button 
-            id="btnExtract" 
-            class="bg-gray-500 hover:bg-gray-600 text-white font-medium py-2 px-4 rounded mb-3">
-            Estrai contatti e informazioni
-          </button>
-          <div id="contact-display"></div>
+          <div class="hover-card bg-white rounded-xl shadow-lg p-5 h-full">
+            <h3 class="text-lg font-semibold mb-3 text-bnl-green">Dati del cliente</h3>
+            <button 
+              id="btnExtract" 
+              class="btn-bnl text-white font-medium py-2 px-4 rounded-lg shadow-md mb-3 w-full">
+              <i class="fas fa-user-check mr-2"></i> Estrai contatti e informazioni
+            </button>
+            <div id="contact-display" class="mt-4 max-h-80 overflow-y-auto p-2 rounded-lg bg-gray-50"></div>
+          </div>
         </div>
       </div>
     </section>
+    
+    <!-- Footer -->
+    <footer class="text-center text-bnl-darkgray py-4">
+      <div class="flex justify-center items-center">
+        
+        <div class="text-sm">
+          © 2025. Tutti i diritti riservati.
+        </div>
+      </div>
+      <div class="mt-2 text-xs">
+        <a href="#" class="text-bnl-green hover:underline mx-2">Privacy</a> |
+        <a href="#" class="text-bnl-green hover:underline mx-2">Termini e Condizioni</a> |
+        <a href="#" class="text-bnl-green hover:underline mx-2">Contatti</a>
+      </div>
+    </footer>
   </div>
   
   <!-- Bootstrap JS Bundle -->
@@ -128,7 +318,7 @@
       const userInput = document.getElementById('userInput').value.trim();
       if (!userInput) return;
       
-      document.getElementById('qa-response').innerHTML = '<div class="bg-blue-100 text-blue-700 p-3 rounded">Generazione della risposta...</div>';
+      document.getElementById('qa-response').innerHTML = '<div class="bg-blue-100 text-blue-700 p-4 rounded-lg flex items-center"><i class="fas fa-spinner fa-spin mr-3"></i> Generazione della risposta in corso...</div>';
       
       fetch('/api/qa', {
         method: 'POST',
@@ -139,7 +329,7 @@
       .then(data => {
         let sourcesHTML = '';
         if (data.sources && Object.keys(data.sources).length > 0) {
-          sourcesHTML += '<h5 class="font-semibold mt-4">Fonti:</h5><ul class="list-disc ml-5">';
+          sourcesHTML += '<h5 class="font-semibold mt-4 text-bnl-green">Fonti:</h5><ul class="list-disc ml-5">';
           for (const [source, occs] of Object.entries(data.sources)) {
             let occText = occs.map(([p, l]) => {
               let str = "";
@@ -147,24 +337,34 @@
               if (l) str += (str ? ", " : "") + `riga ${l}`;
               return str;
             }).join(" - ");
-            sourcesHTML += `<li><a class="text-blue-600 hover:underline" href="${source}" target="_blank">${source}</a> ${occText ? "(" + occText + ")" : ""}</li>`;
+            sourcesHTML += `<li><a class="text-bnl-green hover:underline" href="${source}" target="_blank">${source}</a> ${occText ? "(" + occText + ")" : ""}</li>`;
           }
           sourcesHTML += '</ul>';
         }
         document.getElementById('qa-response').innerHTML =
-          `<div class="bg-green-100 text-green-700 p-3 rounded"><strong>A:</strong> ${data.answer}</div>` +
-          sourcesHTML;
+          `<div class="bg-bnl-gray p-5 rounded-lg border-l-4 border-bnl-green shadow-sm">
+            <div class="flex items-start">
+              <div class="bg-bnl-green text-white rounded-full p-2 mr-4">
+                <i class="fas fa-check"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-bnl-darkgreen mb-2">Risposta</h4>
+                <div class="text-gray-800">${data.answer}</div>
+              </div>
+            </div>
+            ${sourcesHTML}
+          </div>`;
       })
       .catch(err => {
         console.error(err);
-        document.getElementById('qa-response').innerHTML = '<div class="bg-red-100 text-red-700 p-3 rounded">Si è verificato un errore.</div>';
+        document.getElementById('qa-response').innerHTML = '<div class="bg-red-100 text-red-700 p-4 rounded-lg flex items-center"><i class="fas fa-exclamation-circle mr-3"></i> Si è verificato un errore.</div>';
       });
     });
 
     // Recupera il transcript dalla conversazione ElevenLabs
     document.getElementById('btnRetrieve').addEventListener('click', function() {
       const transcriptDiv = document.getElementById('transcript-display');
-      transcriptDiv.innerHTML = '<div class="bg-blue-100 text-blue-700 p-3 rounded">Recupero conversazione...</div>';
+      transcriptDiv.innerHTML = '<div class="flex items-center justify-center p-4 bg-blue-50 text-blue-600 rounded-lg"><i class="fas fa-spinner fa-spin mr-3"></i> Recupero conversazione...</div>';
       
       fetch('/api/transcript')
       .then(response => response.json())
@@ -173,23 +373,23 @@
       })
       .catch(err => {
         console.error(err);
-        transcriptDiv.innerHTML = '<div class="bg-red-100 text-red-700 p-3 rounded">Errore nel recupero della conversazione.</div>';
+        transcriptDiv.innerHTML = '<div class="flex items-center p-4 bg-red-50 text-red-600 rounded-lg"><i class="fas fa-exclamation-circle mr-3"></i> Errore nel recupero della conversazione.</div>';
       });
     });
 
     // Estrazione dei contatti dalla conversazione
     document.getElementById('btnExtract').addEventListener('click', function() {
       const contactDiv = document.getElementById('contact-display');
-      contactDiv.innerHTML = '<div class="bg-blue-100 text-blue-700 p-3 rounded">Estrazione contatti in corso...</div>';
+      contactDiv.innerHTML = '<div class="flex items-center justify-center p-4 bg-blue-50 text-blue-600 rounded-lg"><i class="fas fa-spinner fa-spin mr-3"></i> Estrazione contatti in corso...</div>';
       
       fetch('/api/extract_contacts')
       .then(response => response.json())
       .then(data => {
-        contactDiv.innerHTML = `<div class="bg-green-100 text-green-700 p-3 rounded">${data.contact_info}</div>`;
+        contactDiv.innerHTML = `<div class="bg-bnl-gray p-4 rounded-lg border-l-4 border-bnl-green">${data.contact_info}</div>`;
       })
       .catch(err => {
         console.error(err);
-        contactDiv.innerHTML = '<div class="bg-red-100 text-red-700 p-3 rounded">Errore durante l\'estrazione dei contatti.</div>';
+        contactDiv.innerHTML = '<div class="flex items-center p-4 bg-red-50 text-red-600 rounded-lg"><i class="fas fa-exclamation-circle mr-3"></i> Errore durante l\'estrazione dei contatti.</div>';
       });
     });
     
@@ -200,6 +400,19 @@
       if(widget && container && widget.parentNode !== container) {
         container.appendChild(widget);
       }
+      
+      // Aggiungiamo animate.css classes con un ritardo per creare un effetto a cascata
+      setTimeout(() => {
+        document.getElementById('qa-section').classList.add('animate__animated', 'animate__fadeInUp');
+      }, 300);
+      
+      setTimeout(() => {
+        document.getElementById('elevenlabs-section').classList.add('animate__animated', 'animate__fadeInUp');
+      }, 600);
+      
+      setTimeout(() => {
+        document.getElementById('transcript-section').classList.add('animate__animated', 'animate__fadeInUp');
+      }, 900);
     });
   </script>
 </body>
